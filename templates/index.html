@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Placement Predictor</title>
+</head>
+<body>
+    <h1>Placement Predictor</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label for="age">Age:</label>
+        <input type="text" name="age" required><br>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+
+        <label for="stream">Stream:</label>
+        <select name="stream" required>
+            <option value="Electronics And Communication">Electronics And Communication</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Civil">Civil</option>
+            <option value="Mechanical">Mechanical</option>
+            <option value="Electrical">Electrical</option>
+            <!-- Add more options for other streams -->
+        </select><br>
+
+        <label for="internships">Internships:</label>
+        <input type="text" name="internships" required><br>
+
+        <label for="cgpa">CGPA:</label>
+        <input type="text" name="cgpa" required><br>
+
+        <label for="hostel">Hostel:</label>
+        <input type="text" name="hostel" required><br>
+
+        <label for="history_of_backlogs">History of Backlogs:</label>
+        <input type="text" name="history_of_backlogs" required><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is defined %}
+    <div>
+        <h2>Prediction:</h2>
+        {% if prediction == 1 %}
+        <p>Congratulations! You are to be placed.</p>
+        {% else %}
+        <p>Unfortunately, you are not to be placed.</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>
